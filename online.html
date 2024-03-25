@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interview Results Chart</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.chart-container {
+  margin-top: 20px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Online Results</h1>
+    <div class="chart-container">
+      <canvas id="interviewChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Include Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Include JavaScript file for chart creation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+  var ctx = document.getElementById('interviewChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['January', 'February', 'March', 'April', 'May'],
+      datasets: [{
+        label: 'Passed',
+        data: [15, 10, 8, 12, 18],
+        backgroundColor: 'rgba(54, 162, 235, 0.6)'
+      }, {
+        label: 'Failed',
+        data: [5, 8, 10, 6, 2],
+        backgroundColor: 'rgba(255, 99, 132, 0.6)'
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+});
+
+  </script>
+</body>
+</html>

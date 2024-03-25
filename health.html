@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Chart</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="health">
+        <div class="container">
+            <h1>Health Chart</h1>
+            <canvas id="healthChart"></canvas>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        
+    // Sample data for the health chart
+const healthData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    datasets: [{
+        label: 'Steps',
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
+        data: [5000, 6000, 7000, 6500, 7500, 8000]
+    }]
+};
+
+// Initialize the chart
+const ctx = document.getElementById('healthChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: healthData,
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+    </script>
+</body>
+</html>
